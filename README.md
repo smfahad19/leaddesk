@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LeadDesk Mini
 
-## Getting Started
+LeadDesk Mini is a full-stack web application built as part of the Digital Heroes Internship Qualification Task.
 
-First, run the development server:
+The application allows users to submit project inquiries through a public landing page. Submitted leads are stored in MongoDB and can be managed through a secure admin dashboard where an administrator can search leads and update their status.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Technologies Used
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Next.js 16
+- React
+- Tailwind CSS
+- MongoDB
+- Mongoose
+- JWT Authentication
+- React Hot Toast
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Data Model
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Each lead contains the following information:
 
-## Learn More
+- Name
+- Email
+- Budget
+- Message
+- Status
+- Created At
+- Updated At
 
-To learn more about Next.js, take a look at the following resources:
+Every new lead is created with the default status **New**. The status can later be updated to **Contacted** or **Closed** from the admin dashboard.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Authentication
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The admin area is protected using JWT authentication.
 
-## Deploy on Vercel
+When the admin logs in, the server validates the email and password. If the credentials are correct, a JWT token is generated and returned to the client. The token is stored in the browser and sent with every protected request through the `Authorization` header.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Before returning protected data or updating a lead, the backend verifies the token. If the token is invalid or missing, the request is rejected.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Author
+
+Syed Muhammad Fahad
