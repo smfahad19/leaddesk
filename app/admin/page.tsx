@@ -74,7 +74,6 @@ export default function AdminLogin() {
       toast.dismiss(toastId);
       toast.success("Welcome back! Redirecting to dashboard...");
       
-      // Small delay to show toast before redirect
       setTimeout(() => {
         router.push("/admin/dashboard");
       }, 1000);
@@ -142,18 +141,9 @@ export default function AdminLogin() {
             </div>
 
             <div>
-              <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-medium text-[#C0C0D0]">
-                  Password
-                </label>
-                <button
-                  type="button"
-                  className="text-xs text-[#4A90D9] hover:text-[#3A7BC8] transition-colors"
-                  onClick={() => toast.info("Contact admin to reset password")}
-                >
-                  Forgot password?
-                </button>
-              </div>
+              <label htmlFor="password" className="block text-sm font-medium text-[#C0C0D0]">
+                Password
+              </label>
               <input
                 type="password"
                 id="password"
