@@ -19,14 +19,13 @@ export default function AdminLogin() {
   const [form, setForm] = useState<LoginForm>({ email: "", password: "" });
   const [loading, setLoading] = useState<boolean>(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setForm({ ...form, [e.target.id]: e.target.value });
-  };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setForm({ ...form, [e.target.id]: e.target.value });
+};
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
 
-    // Validation
     if (!form.email.trim()) {
       toast.error("Email address is required");
       return;
@@ -74,7 +73,6 @@ export default function AdminLogin() {
       toast.dismiss(toastId);
       toast.success("Welcome back! Redirecting to dashboard...");
       
-      // Small delay to show toast before redirect
       setTimeout(() => {
         router.push("/admin/dashboard");
       }, 1000);
@@ -142,18 +140,9 @@ export default function AdminLogin() {
             </div>
 
             <div>
-              <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-medium text-[#C0C0D0]">
-                  Password
-                </label>
-                <button
-                  type="button"
-                  className="text-xs text-[#4A90D9] hover:text-[#3A7BC8] transition-colors"
-                  onClick={() => toast.info("Contact admin to reset password")}
-                >
-                  Forgot password?
-                </button>
-              </div>
+              <label htmlFor="password" className="block text-sm font-medium text-[#C0C0D0]">
+                Password
+              </label>
               <input
                 type="password"
                 id="password"

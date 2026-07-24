@@ -6,8 +6,9 @@ export default function LandingPage() {
   const [form, setForm] = useState({ name: "", email: "", budget: "", message: "" });
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => setForm({ ...form, [e.target.id]: e.target.value });
-
+const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setForm({ ...form, [e.target.id]: e.target.value });
+};
   const validateForm = () => {
     if (!form.name.trim()) return "Full name is required";
     if (!form.email.trim()) return "Email address is required";
