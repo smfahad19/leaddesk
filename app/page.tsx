@@ -1,14 +1,28 @@
 "use client";
+
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
+interface FormData {
+  name: string;
+  email: string;
+  budget: string;
+  message: string;
+}
+
 export default function LandingPage() {
-  const [form, setForm] = useState({ name: "", email: "", budget: "", message: "" });
+  const [form, setForm] = useState<FormData>({ 
+    name: "", 
+    email: "", 
+    budget: "", 
+    message: "" 
+  });
   const [loading, setLoading] = useState(false);
 
-const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  setForm({ ...form, [e.target.id]: e.target.value });
-};
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setForm({ ...form, [e.target.id]: e.target.value });
+  };
+
   const validateForm = () => {
     if (!form.name.trim()) return "Full name is required";
     if (!form.email.trim()) return "Email address is required";
@@ -18,7 +32,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     return null;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const validationError = validateForm();
     if (validationError) {
