@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 # LeadDesk Mini
 
 LeadDesk Mini is a full-stack web application built as part of the Digital Heroes Internship Qualification Task.
+=======
+# LeadDesk
+
+LeadDesk is a full-stack web application built as part of the Digital Heroes Internship Qualification Task.
+>>>>>>> 5d2c7846460c0da6eed6af2a83a85cac0c044258
 
 The application allows users to submit project inquiries through a public landing page. Submitted leads are stored in MongoDB and can be managed through a secure admin dashboard where an administrator can search leads and update their status.
 
@@ -38,4 +44,8 @@ Before returning protected data or updating a lead, the backend verifies the tok
 
 ## Author
 
+<<<<<<< HEAD
 Syed Muhammad Fahad
+=======
+Syed Muhammad Fahad
+>>>>>>> 5d2c7846460c0da6eed6af2a83a85cac0c044258
